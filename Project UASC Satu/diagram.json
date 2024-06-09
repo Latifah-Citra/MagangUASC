@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "Latifah Citra Mahkota",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 38.7, "left": -72.6, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 34.8, "left": 119, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 12,
+      "left": 174.6,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "esp:13", "dht1:SDA", "green", [ "h0" ] ],
+    [ "dht1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "led1:C", "esp:GND.3", "green", [ "v0" ] ],
+    [ "led1:A", "esp:17", "green", [ "v0" ] ],
+    [ "bz1:2", "esp:16", "red", [ "v38.4", "h-115.6" ] ],
+    [ "bz1:1", "esp:GND.3", "black", [ "v-9.6", "h-105.6" ] ]
+  ],
+  "dependencies": {}
+}
